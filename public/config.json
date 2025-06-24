@@ -1,0 +1,34 @@
+{
+  "workflowApiVersion": "1.1",
+  "type": "REST",
+  "metaData": { "icon": "images/icon.png", "category": "message" },
+  "lang": {
+    "en-US": {
+      "name": "WhatsApp via Twilio",
+      "description": "Sends WhatsApp message via Twilio API"
+    }
+  },
+  "arguments": {
+    "execute": {
+      "inArguments": [
+        { "phone": "{{Contact.Default.Phone}}", "message": "{{Event.TwilioEvent.Message}}" }
+      ],
+      "url": "https://your-vercel-url.vercel.app/api/send",
+      "timeout": 10000,
+      "useJwt": false
+    }
+  },
+  "configurationArguments": {
+    "save": { "url": "https://your-vercel-url.vercel.app/api/send" },
+    "publish": { "url": "https://your-vercel-url.vercel.app/api/send" },
+    "validate": { "url": "https://your-vercel-url.vercel.app/api/send" }
+  },
+  "wizardSteps": [{ "label": "Configure", "key": "step1" }],
+  "userInterfaces": {
+    "configModal": {
+      "height": 300,
+      "width": 400,
+      "url": "index.html"
+    }
+  }
+}
